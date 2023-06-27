@@ -1,0 +1,45 @@
+
+@Entity
+public class Client {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    // Relationship: Many-to-One with FinancialAdvisor
+    @ManyToOne
+    private FinancialAdvisor financialAdvisor;
+
+    public Client() {
+    }
+
+    public Client(String name, FinancialAdvisor financialAdvisor) {
+        this.name = name;
+        this.financialAdvisor = financialAdvisor;
+    }
+
+    // Getters and setters
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public FinancialAdvisor getFinancialAdvisor() {
+        return financialAdvisor;
+    }
+
+    public void setFinancialAdvisor(FinancialAdvisor financialAdvisor) {
+        this.financialAdvisor = financialAdvisor;
+    }
+}
+
